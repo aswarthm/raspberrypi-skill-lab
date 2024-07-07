@@ -3,15 +3,7 @@
 
 ### Installation
 
-#### Clone the project
-
-First, clone the repository to your local machine:
-
-```bash
-git clone https://github.com/aswarthm/parking-system
-```
-
-Navigate into the project directory:
+First, navigate into the project directory:
 
 ```bash
 cd parking-system
