@@ -47,7 +47,7 @@ ssh pi@raspberrypi.local
 2. Install the "Remote - SSH" extension from the VS Code marketplace.
 3. Open VS Code, then open the Command Palette (`Ctrl+Shift+P`).
 4. Type `Remote-SSH: Connect to Host...` and press Enter.
-5. Type `ssh pi@raspberrypi.local` in the prompt and press enter.
+5. Type `pi@raspberrypi.local` in the prompt and press enter.
 6. Follow the prompts to authenticate and connect.
 
 ## Connect via VNC Viewer
