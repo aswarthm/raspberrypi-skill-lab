@@ -1,5 +1,5 @@
 
-# [Raspberry Pi 4 Setup Guide](https://github.com/aswarthm/raspberrypi-skill-lab)
+# [Raspberry Pi 4 Setup Guide - https://github.com/aswarthm/raspberrypi-skill-lab](https://github.com/aswarthm/raspberrypi-skill-lab)
 
 ## Step 1: Download and Install Raspberry Pi Imager
 
