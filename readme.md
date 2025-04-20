@@ -1,5 +1,5 @@
 
-# Raspberry Pi 4 Setup Guide
+# [Raspberry Pi 4 Setup Guide](https://github.com/aswarthm/raspberrypi-skill-lab)
 
 ## Step 1: Download and Install Raspberry Pi Imager
 
@@ -30,7 +30,6 @@
 1. Eject the microSD card from your computer and insert it into your Raspberry Pi.
 2. Connect your Raspberry Pi to power and to your network via Ethernet or previously configured WiFi settings.
 3. Wait for the Raspberry Pi to boot up.
-> Use [Fing](https://www.fing.com/fing-desktop/) to check whether the Raspberry Pi has booted
 
 ## Connect via SSH Using Terminal
 
