@@ -1,0 +1,38 @@
+from flask import Flask, render_template, jsonify
+from gpiozero import InputDevice
+
+app = Flask(__name__)
+
+parkingSpot1 = InputDevice(5)
+parkingSpot2 = InputDevice(6)
+
+occupiedSpots = {}
+prevOccupiedSpots = {}
+
+
+def updateParkingSpots():
+    isOccupied = {}
+    isOccupied["spot1"] = parkingSpot1.is_active
+    isOccupied["spot2"] = parkingSpot2.is_active
+    return isOccupied
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+@app.route('/api/parking-status')
+def get_parking_status():
+    global prevOccupiedSpots, occupiedSpots
+    prevOccupiedSpots = occupiedSpots
+    occupiedSpots = updateParkingSpots()
+    if(occupiedSpots != prevOccupiedSpots):
+        print("Parking Spots have Changed " + str(occupiedSpots))
+    return jsonify({
+        "spot1": occupiedSpots.get("spot1", False),
+        "spot2": occupiedSpots.get("spot2", False)
+    })
+
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=5000)

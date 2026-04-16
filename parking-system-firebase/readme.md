@@ -1,6 +1,8 @@
 
 # Parking Management System
 
+This project demonstrates a parking spot monitoring system using Raspberry Pi GPIO sensors and Firebase Realtime Database.
+
 ### Installation
 
 First, navigate into the project directory:
@@ -19,7 +21,9 @@ Install requirements
 ```bash
 pip install -r requirements.txt
 ```
-## Download `key.json` from Firebase
+## Configuration
+
+Before running the application, you need to configure your Firebase credentials:
 
 1. Go to the [Firebase Console](https://console.firebase.google.com/).
 2. Select your project.
@@ -33,6 +37,14 @@ Finally, run the application:
 ```bash
 python app.py
 ```
+
+## Features
+
+- Real-time GPIO sensor monitoring for parking spot occupancy
+- Firebase Realtime Database integration for data storage
+- Automatic updates only when parking status changes
+- TLS secure connection to Firebase
+- Continuous monitoring with 1-second polling interval
 
 ## Pinout for Raspberry Pi 4 GPIOs  
   

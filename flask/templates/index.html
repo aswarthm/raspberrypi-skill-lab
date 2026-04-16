@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Management System</title>
+</head>
+<body>
+    <h1>Parking Management System</h1>
+    <div id="parking-container">
+        <div id="spot1">
+            <h2>Parking Spot 1</h2>
+            <p>Status: <span id="spot1-status">Loading...</span></p>
+        </div>
+        <div id="spot2">
+            <h2>Parking Spot 2</h2>
+            <p>Status: <span id="spot2-status">Loading...</span></p>
+        </div>
+    </div>
+    
+    <script>
+        function updateParkingStatus() {
+            fetch('/api/parking-status')
+                .then(response => response.json())
+                .then(data => {
+                    updateSpotStatus('spot1', data.spot1);
+                    updateSpotStatus('spot2', data.spot2);
+                })
+                .catch(error => console.error('Error fetching parking status:', error));
+        }
+
+        function updateSpotStatus(spotId, isOccupied) {
+            const statusElement = document.getElementById(`${spotId}-status`);
+            const spotDiv = document.getElementById(spotId);
+            
+            if (isOccupied) {
+                statusElement.textContent = 'Occupied';
+                spotDiv.style.backgroundColor = '#ffcccc';
+            } else {
+                statusElement.textContent = 'Available';
+                spotDiv.style.backgroundColor = '#ccffcc';
+            }
+        }
+
+        updateParkingStatus();
+        setInterval(updateParkingStatus, 1000);
+    </script>
+</body>
+</html>
