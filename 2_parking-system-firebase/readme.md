@@ -8,7 +8,7 @@ This project demonstrates a parking spot monitoring system using Raspberry Pi GP
 First, navigate into the project directory:
 
 ```bash
-cd parking-system
+cd 2_parking-system-firebase
 ```
 
 Setup a virtual environment
@@ -29,6 +29,7 @@ Before running the application, you need to configure your Firebase credentials:
 2. Select your project.
 3. Navigate to `Project settings` > `Firebase Admin SDK`.
 4. Click on "Generate new private key" and save the file as `key.json` to your project directory.
+5. Open `app.py` and replace `firebase_url` in `databaseURL` with your Firebase Realtime Database URL.
 
 ## Run the application
 

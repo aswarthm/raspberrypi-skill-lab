@@ -7,7 +7,7 @@ This project demonstrates a parking spot monitoring system using Raspberry Pi GP
 First, navigate into the project directory:
 
 ```bash
-cd mqtt
+cd 3_mqtt
 ```
 
 Setup a virtual environment

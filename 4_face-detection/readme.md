@@ -6,7 +6,7 @@
 First, navigate into the project directory:
 
 ```bash
-cd face-detection
+cd 4_face-detection
 ```
 
 Setup a virtual environment
@@ -20,12 +20,6 @@ Install requirements
 pip install -r requirements.txt
 ```
 
-## Download `key.json` from Firebase
-
-1. Go to the [Firebase Console](https://console.firebase.google.com/).
-2. Select your project.
-3. Navigate to `Project settings` > `Firebase Admin SDK`.
-4. Click on "Generate new private key" and save the file as `key.json` to your project directory.
 
 
 ## Creating Dataset
@@ -35,7 +29,7 @@ Navigate into the project directory
 Activate venv
 
 ```bash
-cd face-detection
+cd 4_face-detection
 . venv/bin/activate
 ```
 Run `collect_imgs.py` to capture pictures of yourself
@@ -56,6 +50,12 @@ Finally, run the application:
 ```bash
 python app.py
 ```
+
+The video stream is served at `http://<raspberry-pi-ip>:8000/`.
+
+## Notes
+
+- Update the `names` list in `detect_faces.py` to match your dataset IDs.
 
 ## Connecting Camera To Raspberry Pi 4 
   

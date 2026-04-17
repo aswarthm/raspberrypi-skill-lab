@@ -7,7 +7,7 @@ This project demonstrates a parking spot monitoring system using Raspberry Pi GP
 First, navigate into the project directory:
 
 ```bash
-cd parking-flask
+cd 1_flask
 ```
 
 Setup a virtual environment:
