@@ -1,17 +1,5 @@
 import cv2
-import numpy as np
-import os 
 from picamera2 import Picamera2
-import firebase_admin
-from firebase_admin import db
-
-
-cred_obj = firebase_admin.credentials.Certificate('./key.json')
-default_app = firebase_admin.initialize_app(cred_obj, {
-        'databaseURL':"https://esp32-bms-a0e26-default-rtdb.firebaseio.com/"
-        })
-ref = db.reference("/")
-# data = ref.get() # Gets full firebase
 
 picam2 = Picamera2()
 camera_config = picam2.create_still_configuration(main={"size": (640, 480)})
@@ -55,7 +43,6 @@ def detectFaces(img):
         cv2.putText(img, str(id), (x+5,y-5), font, 1, (255,255,255), 2)
         cv2.putText(img, str(confidence), (x+5,y+h-5), font, 1, (255,255,0), 1)
     
-    writeToFirebase(names)  
     return img
 
 def gen_frames():
@@ -66,7 +53,3 @@ def gen_frames():
         ret, buffer = cv2.imencode('.jpg', img)
         img = buffer.tobytes()
         yield(b'--frame\r\n Content-Type: image/jpeg\r\n\r\n' + img + b'\r\n')
-
-
-def writeToFirebase(names):
-    ref.update({"names": detectedNames})
