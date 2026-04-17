@@ -4,7 +4,7 @@ from paho import mqtt
 from gpiozero import InputDevice
 from time import sleep
 
-hive_mq_cloud = "d7b41708eb4d43eeaa19ff7d51a36933.s1.eu.hivemq.cloud"
+hive_mq_cloud = "hivemq broker url"
 username = "username"
 password = "password"
 
