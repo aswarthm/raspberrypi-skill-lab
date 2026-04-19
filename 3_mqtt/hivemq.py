@@ -48,8 +48,8 @@ prevOccupiedSpots = {}
 def updateParkingSpots():
     isOccupied = {}
 
-    isOccupied["spot1"] = parkingSpot1.is_active
-    isOccupied["spot2"] = parkingSpot2.is_active
+    isOccupied["spot1"] = not parkingSpot1.is_active
+    isOccupied["spot2"] = not parkingSpot2.is_active
     
     return isOccupied
 

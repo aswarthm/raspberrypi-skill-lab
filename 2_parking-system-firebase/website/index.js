@@ -26,10 +26,10 @@ function updateSpotStatus(spotId, isOccupied) {
   const statusElement = document.getElementById(spotId);
   console.log(isOccupied)
 
-  if (isOccupied === 1) {
+  if (isOccupied === true) {
     statusElement.textContent = "Occupied";
     statusElement.style.backgroundColor = "#ffcccc";
-  } else if(isOccupied === 0) {
+  } else if(isOccupied === false) {
     statusElement.textContent = "Available";
     statusElement.style.backgroundColor = "#ccffcc";
   }

@@ -3,17 +3,29 @@ from gpiozero import InputDevice
 
 app = Flask(__name__)
 
-parkingSpot1 = InputDevice(5)
-parkingSpot2 = InputDevice(6)
+parkingSpot1 = None
+parkingSpot2 = None
 
 occupiedSpots = {}
 prevOccupiedSpots = {}
 
 
+def getParkingDevices():
+    global parkingSpot1, parkingSpot2
+
+    if parkingSpot1 is None:
+        parkingSpot1 = InputDevice(5)
+    if parkingSpot2 is None:
+        parkingSpot2 = InputDevice(6)
+
+    return parkingSpot1, parkingSpot2
+
+
 def updateParkingSpots():
+    parkingSpot1, parkingSpot2 = getParkingDevices()
     isOccupied = {}
-    isOccupied["spot1"] = parkingSpot1.is_active
-    isOccupied["spot2"] = parkingSpot2.is_active
+    isOccupied["spot1"] = not parkingSpot1.is_active
+    isOccupied["spot2"] = not parkingSpot2.is_active
     return isOccupied
 
 @app.route('/')
@@ -35,4 +47,4 @@ def get_parking_status():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, use_reloader=False, host='0.0.0.0', port=5000)

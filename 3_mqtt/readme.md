@@ -29,7 +29,7 @@ Before running the application, you need to configure your HiveMQ Cloud credenti
 
 1. Sign up for [HiveMQ Cloud](https://www.hivemq.cloud/).
 2. Create a cluster and note the broker address.
-3. Open `hivmq.py` and update the following variables:
+3. Open `hivemq.py` and update the following variables:
    - `hive_mq_cloud`: Your HiveMQ Cloud broker address
    - `username`: Your MQTT username
    - `password`: Your MQTT password
@@ -39,7 +39,7 @@ Before running the application, you need to configure your HiveMQ Cloud credenti
 Finally, run the application:
 
 ```bash
-python hivmq.py
+python hivemq.py
 ```
 
 ## Features

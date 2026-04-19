@@ -1,15 +1,15 @@
-import os 
 import firebase_admin
 from firebase_admin import db
-from gpiozero  import InputDevice
+from gpiozero import InputDevice
 from time import sleep
 
 
 credObj = firebase_admin.credentials.Certificate('./key.json')
-defaultApp = firebase_admin.initialize_app(credObj, {
-        'databaseURL':"firebase_url"
-        })
+
 ref = db.reference("/")
+defaultApp = firebase_admin.initialize_app(credObj, {
+    'databaseURL': "firebase_url"
+})
 # data = ref.get() # Gets full firebase
 
 parkingSpot1 = InputDevice(5)
@@ -21,9 +21,9 @@ prevOccupiedSpots = {}
 def updateParkingSpots():
     isOccupied = {}
 
-    isOccupied["spot1"] = parkingSpot1.is_active
-    isOccupied["spot2"] = parkingSpot2.is_active
-    
+    isOccupied["spot1"] = not parkingSpot1.is_active
+    isOccupied["spot2"] = not parkingSpot2.is_active
+
     return isOccupied
 
 def writeToFirebase(occupiedSpots):
@@ -32,7 +32,7 @@ def writeToFirebase(occupiedSpots):
 while True:
     prevOccupiedSpots = occupiedSpots
     occupiedSpots = updateParkingSpots()
-    if(occupiedSpots != prevOccupiedSpots):
+    if (occupiedSpots != prevOccupiedSpots):
         writeToFirebase(occupiedSpots)
         print("Parking Spots have Changed " + str(occupiedSpots))
     sleep(1)
