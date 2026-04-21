@@ -43,6 +43,7 @@ python app.py
 
 Open a new terminal and go to the `website` directory
 Update the firebaseConfig with your project
+Enable venv
 Run `python -m http.server`
 Open the url in your browser
 
