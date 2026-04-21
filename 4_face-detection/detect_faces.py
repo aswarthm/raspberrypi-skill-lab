@@ -2,7 +2,6 @@ import cv2
 
 video = cv2.VideoCapture(0)
 
-picam2.start()
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.read('./trainer/trainer.yml')
 cascadePath = "./haarcascade_frontalface_default.xml"
