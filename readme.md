@@ -16,7 +16,7 @@
 5. Click on `CHOOSE STORAGE` and select your microSD card.
 6. Press `Ctrl` + `Shift` + `X` to open the advanced options menu.
 - In the advanced options menu:
-  - **Set Hostname:** Ensure the hostname is set to `raspberrypi.local`.
+  - **Set Hostname:** Ensure the hostname is set to `pi.local`.
   - **Set username and password:** Set the username as `pi` and password as `12345678`.
   - **Configure WiFi:** Enter your WiFi network's SSID and password.
   - **Enable SSH:** Switch to `Services` tab and check the `Enable SSH` option. Choose `Use password authentication`
@@ -36,7 +36,7 @@
 1. Open a new Terminal/CMD prompt
 2. Enter the following command
 ```bash
-ssh pi@raspberrypi.local
+ssh pi@pi.local
 ```
 3. Accept the security prompt by typing `yes` and enter the password when prompted
 
@@ -45,7 +45,7 @@ ssh pi@raspberrypi.local
 1. Install [Visual Studio Code](https://code.visualstudio.com/download) on your computer
 2. Install the "Remote - SSH" extension from the VS Code marketplace.
 3. Click on the Remote-SSH icon on the bottom left of the window.
-4. Type `pi@raspberrypi.local` in the prompt and press enter.
+4. Type `pi@pi.local` in the prompt and press enter.
 5. Follow the prompts to authenticate and connect.
 
 ## Connect via VNC Viewer
@@ -78,7 +78,7 @@ ssh pi@raspberrypi.local
 
 2. **Enter Raspberry Pi's IP Address:** In the top bar, enter the IP address of your Raspberry Pi. If you're unsure of the IP, you can find it on your phone's hotspot settings screen or use a network scanning tool like [Fing](https://www.fing.com/fing-desktop/).
 
-   - The format should be `raspberrypi.local` or the IP address directly, such as `192.168.1.X`.
+   - The format should be `pi.local` or the IP address directly, such as `192.168.1.X`.
 
 3. **Authenticate:** When prompted, enter the username (`pi` by default) and password for your Raspberry Pi.
 
