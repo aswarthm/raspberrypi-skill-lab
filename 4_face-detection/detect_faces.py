@@ -1,9 +1,6 @@
 import cv2
-from picamera2 import Picamera2
 
-picam2 = Picamera2()
-camera_config = picam2.create_still_configuration(main={"size": (640, 480)})
-picam2.configure(camera_config)
+video = cv2.VideoCapture(0)
 
 picam2.start()
 recognizer = cv2.face.LBPHFaceRecognizer_create()
@@ -47,7 +44,9 @@ def detectFaces(img):
 
 def gen_frames():
     while(True):
-        img = picam2.capture_array()
+        res, img = video.read()
+        if not res:
+            break
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         img = detectFaces(img)
         ret, buffer = cv2.imencode('.jpg', img)

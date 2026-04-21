@@ -39,6 +39,13 @@ Finally, run the application:
 python app.py
 ```
 
+# Open the webpage
+
+Open a new terminal and go to the `website` directory
+Update the firebaseConfig with your project
+Run `python -m http.server`
+Open the url in your browser
+
 ## Features
 
 - Real-time GPIO sensor monitoring for parking spot occupancy

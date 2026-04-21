@@ -1,19 +1,16 @@
 import cv2
 import os
-from picamera2 import Picamera2
 
-picam2 = Picamera2()
-camera_config = picam2.create_still_configuration(main={"size": (640, 480)})
-picam2.configure(camera_config)
-
-picam2.start()
+video = cv2.VideoCapture(0)
 
 face_detector = cv2.CascadeClassifier('./haarcascade_frontalface_default.xml')
 face_id = input('\n enter user id end press <return> ==>  ')
 print("\n [INFO] Initializing face capture. Look the camera and wait ...")
 count = 0
 while(True):
-    img = picam2.capture_array()
+    res, img = video.read()
+    if not res:
+        break
     #img = cv2.flip(img, -1) # flip video image vertically
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     cv2.imshow('camera', img)
